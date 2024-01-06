@@ -71,13 +71,37 @@
         </div>
 
         <!-- fourth child -->
+
         <div class="row">
             <div class="col-md-10">
                 <!-- products -->
                 <div class="row">
+
                     <div class="col-md-4  mb-2">
                         <div class="card">
-                            <img src="./images/apple.jpg" class="card-img-top" alt="...">
+                            <img src="./images/daisy.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-info">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4  mb-2">
+                        <div class="card">
+                            <img src="./images/daisy.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-info">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4  mb-2">
+                        <div class="card">
+                            <img src="./images/icecoffee.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -108,9 +132,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4  mb-2">
                         <div class="card">
-                            <img src="./images/daisy.jpg" class="card-img-top" alt="...">
+                            <img src="./images/apple.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -119,39 +143,71 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="./images/daisy.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="./images/daisy.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-            <div class="col-md-2">
-                <!-- sidebar -->
-                <h1>hi</h1>
+
+
+            <!-- sidebar -->
+            <div class="col-md-2 bg-secondary p-0">
+                <!-- brands to display -->
+                <ul class="navbar-nav me-auto text-center">
+                    <li class="nav-item bg-info">
+                        <a href="#" class="nav-link text-light">
+                            <h4>Delivery brands</h4>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light">
+                            brand4
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light">
+                            brand4
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light">
+                            brand4
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light">
+                            brand4
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- categories -->
+                <ul class="navbar-nav me-auto text-center">
+                    <li class="nav-item bg-info">
+                        <a href="#" class="nav-link text-light">
+                            <h4>categories</h4>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light">categorie1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light">categorie2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light">categorie3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light">categorie4</a>
+                    </li>
+                </ul>
             </div>
+
         </div>
 
-        <!-- <div class="bg-info p-3 text-center">
+        <div class="bg-info p-3 text-center">
             <p>All rights reserved Designed by me 2024</p>
-        </div> -->
+        </div>
     </div>
 
     <!-- bootstrap js link -->
