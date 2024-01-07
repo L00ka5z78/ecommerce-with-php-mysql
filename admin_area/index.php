@@ -45,7 +45,7 @@
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">View products</a></button>
                     <button class="my-3 px-1"><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert categories</a></button>
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">View categories</a></button>
-                    <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">Insert brands</a></button>
+                    <button class="my-3 px-1"><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert brands</a></button>
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">View brands</a></button>
                     <button class="my-3" px-1><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
@@ -59,7 +59,10 @@
         <div class="container my-5">
             <?php
             if (isset($_GET['insert_category'])) {
-                include('insert_categories.php');
+                include('panel/insert_categories.php');
+            }
+            if (isset($_GET['insert_brand'])) {
+                include('panel/insert_brands.php');
             }
             ?>
         </div>
