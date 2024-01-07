@@ -41,7 +41,9 @@
                     <p class="text-light text-center">admin name</p>
                 </div>
                 <div class="button text-center">
-                    <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">Insert products</a></button>
+                    <button class="my-3 px-1">
+                        <a href="panel/insert_product.php" class="nav-link text-light bg-info my-1">Insert products</a>
+                    </button>
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">View products</a></button>
                     <button class="my-3 px-1"><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert categories</a></button>
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">View categories</a></button>
@@ -56,7 +58,7 @@
         </div>
 
         <!-- 4 child -->
-        <div class="container my-5">
+        <div class="container my-3">
             <?php
             if (isset($_GET['insert_category'])) {
                 include('panel/insert_categories.php');
