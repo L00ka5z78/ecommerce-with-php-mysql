@@ -56,7 +56,7 @@
         </div>
 
         <!-- 4 child -->
-        <div class="container my-5">
+        <div class="container my-3">
             <?php
             if (isset($_GET['insert_category'])) {
                 include('panel/insert_categories.php');
