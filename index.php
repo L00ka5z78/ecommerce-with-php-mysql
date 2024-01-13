@@ -170,9 +170,7 @@ include('includes/connect.php')
                         $brand_title            = $row_data['brand_title'];
                         $brand_id               = $row_data['brand_id'];
                         echo "<li class='nav-item'>
-                        <a href='index.php?brand=$brand_id' class='nav-link text-light'>
-                            $brand_title
-                        </a>
+                        <a href='index.php?brand=$brand_id' class='nav-link text-light'>$brand_title</a>
                     </li>";
                     }
                     ?>
@@ -191,7 +189,7 @@ include('includes/connect.php')
                     <?php
                     $select_categories              = "SELECT * FROM `categories`";
                     $result_categories              = mysqli_query($con, $select_categories);
-                    while ($row_data            = mysqli_fetch_assoc($result_categories)) {
+                    while ($row_data                = mysqli_fetch_assoc($result_categories)) {
                         $category_title            = $row_data['category_title'];
                         $category_id               = $row_data['category_id'];
                         echo "<li class='nav-item'>
