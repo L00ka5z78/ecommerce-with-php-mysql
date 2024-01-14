@@ -85,6 +85,7 @@ include('functions/common_function.php');
                     <!-- fetching products from db -->
                     <?php
                     getproducts();
+                    get_unique_categories();
                     ?>
                 </div>
             </div>
@@ -114,6 +115,7 @@ include('functions/common_function.php');
 
                     <?php
                     getcategories();
+
                     ?>
                 </ul>
             </div>
