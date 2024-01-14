@@ -84,7 +84,8 @@ include('functions/common_function.php');
                 <div class="row">
                     <!-- fetching products from db -->
                     <?php
-                    getproducts();
+                    get_all_products();
+                    // getproducts();
                     get_unique_categories();
                     get_unique_brands();
                     ?>
