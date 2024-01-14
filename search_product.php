@@ -1,6 +1,6 @@
 <?php
-include('includes/connect.php');
-include('functions/common_function.php');
+include('./includes/connect.php');
+include('./functions/common_function.php');
 
 ?>
 
@@ -50,7 +50,7 @@ include('functions/common_function.php');
                         </li>
 
                     </ul>
-                    <form class="d-flex" role="search" action="search_product.php" method="get">
+                    <form class="d-flex" role="search" action="" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
                         <input type="submit" value="Search" class="btn btn-outline-light mx-2" name="search_data_product">
                     </form>
@@ -84,7 +84,7 @@ include('functions/common_function.php');
                 <div class="row">
                     <!-- fetching products from db -->
                     <?php
-                    getproducts();
+                    search_product();
                     get_unique_categories();
                     get_unique_brands();
                     ?>
