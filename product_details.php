@@ -82,9 +82,38 @@ include('functions/common_function.php');
             <div class="col-md-10">
                 <!-- products -->
                 <div class="row">
+
+                    <div class="col-md-4">
+                        <!-- card -->
+                        <div class='card'>
+                            <img src='images/biryani.jpg' class='card-img-top' alt='$product_title'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>$product_title</h5>
+                                <p class='card-text'>$product_description</p>
+                                <a href='#' class='btn btn-info'>Add to cart</a>
+                                <a href='#' class='btn btn-secondary'>View more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <!-- related img -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="text-center text-info mb-4">Related products</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <img src='images/biryani1.jpg' class='card-img-top' alt='$product_title'>
+                            </div>
+                            <div class="col-md-6">
+                                <img src='images/biryani2.jpg' class='card-img-top' alt='$product_title'>
+                            </div>
+
+
+                        </div>
+                    </div>
+
                     <!-- fetching products from db -->
                     <?php
-                    // getproducts();
                     get_unique_categories();
                     get_unique_brands();
                     ?>
