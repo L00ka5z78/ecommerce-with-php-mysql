@@ -83,8 +83,7 @@ include('functions/common_function.php');
                 <!-- products -->
                 <div class="row">
 
-                    <div class="col-md-4">
-                        <!-- card -->
+                    <!-- <div class="col-md-4">
                         <div class='card'>
                             <img src='images/biryani.jpg' class='card-img-top' alt='$product_title'>
                             <div class='card-body'>
@@ -96,7 +95,6 @@ include('functions/common_function.php');
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <!-- related img -->
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 class="text-center text-info mb-4">Related products</h4>
@@ -110,10 +108,11 @@ include('functions/common_function.php');
 
 
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- fetching products from db -->
                     <?php
+                    view_details();
                     get_unique_categories();
                     get_unique_brands();
                     ?>
