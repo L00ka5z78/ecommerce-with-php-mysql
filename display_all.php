@@ -43,9 +43,7 @@ include('functions/common_function.php');
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>
-                                    <?php cart_item(); ?>
-                                </sup></a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Total price:100-/</a>
@@ -59,11 +57,6 @@ include('functions/common_function.php');
                 </div>
             </div>
         </nav>
-        <!-- calling cart function  -->
-        <?php
-        cart()
-        ?>
-
 
         <!-- second child -->
         <nav class="navbar navbar-expand-lg  navbar-dark bg-secondary">
@@ -91,11 +84,10 @@ include('functions/common_function.php');
                 <div class="row">
                     <!-- fetching products from db -->
                     <?php
-                    getproducts();
+                    get_all_products();
+                    // getproducts();
                     get_unique_categories();
                     get_unique_brands();
-                    // $ip = getIPAddress();
-                    // echo 'User Real IP Address - ' . $ip;
                     ?>
                 </div>
             </div>
