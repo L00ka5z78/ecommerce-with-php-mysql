@@ -337,7 +337,7 @@ function cart()
             echo "<script>alert('This item is already inside cart')</script>";
             echo "<script>window.open('index.php', '_self')</script>";
         } else {
-            $insert_query = "
+            $insert_query       = "
                 INSERT 
                 INTO
                     `cart_details`
@@ -350,4 +350,39 @@ function cart()
             echo "<script>window.open('index.php', '_self')</script>";
         }
     }
+}
+// get number of items in the cart
+
+function cart_item()
+{
+    if (isset($_GET['add_to_cart'])) {
+        global $con;
+        $get_ip_add             = getIPAddress();
+        $select_query           = "
+            SELECT
+            *    
+            FROM 
+                `cart_details`
+            WHERE
+                ip_address =
+                '$get_ip_add'
+            ";
+        $result_query           = mysqli_query($con, $select_query);
+        $count_cart_items            = mysqli_num_rows($result_query);
+    } else {
+        global $con;
+        $get_ip_add                     = getIPAddress();
+        $select_query           = "
+                SELECT
+                *    
+                FROM 
+                    `cart_details`
+                WHERE
+                    ip_address =
+                    '$get_ip_add'
+                ";
+        $result_query           = mysqli_query($con, $select_query);
+        $count_cart_items            = mysqli_num_rows($result_query);
+    }
+    echo $count_cart_items;
 }
