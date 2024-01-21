@@ -48,7 +48,7 @@ include('functions/common_function.php');
                                 </sup></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total price:100-/</a>
+                            <a class="nav-link" href="#">Total price: <?php total_cart_price(); ?>-/</a>
                         </li>
 
                     </ul>
