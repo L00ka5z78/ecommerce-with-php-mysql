@@ -10,7 +10,7 @@ include('functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce Website using PHP and MySql</title>
+    <title>Ecommerce Website cart details</title>
     <!-- bootstrap css link  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- font awesome link  -->
@@ -47,15 +47,8 @@ include('functions/common_function.php');
                                     <?php cart_item(); ?>
                                 </sup></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Total price: <?php total_cart_price(); ?>-/</a>
-                        </li>
-
                     </ul>
-                    <form class="d-flex" role="search" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-                        <input type="submit" value="Search" class="btn btn-outline-light mx-2" name="search_data_product">
-                    </form>
+
                 </div>
             </div>
         </nav>
@@ -83,54 +76,44 @@ include('functions/common_function.php');
             <p class="text-center">Communications is at the heart of e-commerce and community</p>
         </div>
 
-        <!-- fourth child -->
-
-        <div class="row px-1">
-            <div class="col-md-10">
-                <!-- products -->
-                <div class="row">
-                    <!-- fetching products from db -->
-                    <?php
-                    getproducts();
-                    get_unique_categories();
-                    get_unique_brands();
-                    // $ip = getIPAddress();
-                    // echo 'User Real IP Address - ' . $ip;
-                    ?>
+        <!-- fourth child table-->
+        <div class="container">
+            <div class="row">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>Product Title</th>
+                            <th>Product Image</th>
+                            <th>Quantity </th>
+                            <th>Total Price</th>
+                            <th>Remove</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apple</td>
+                            <td><img class="img-fluid img-thumbnail" style="height: 100px;" src="./images/apple1.jpg" alt="123"></td>
+                            <td><input type="text"></td>
+                            <td>9000</td>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <p>Update</p>
+                                <p>Remove</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- subtotal  -->
+                <div class="d-flex mb-5">
+                    <h4 class="px-3">Subtotal: <strong class="text-info">5000/-</strong></h4>
+                    <a href="index.php"><button class="bg-info px-3 py-2 mx-3 border-0">Continue Shopping</button></a>
+                    <a href="#12"><button class="bg-secondary px-3 py-2 border-0 text-light">Checkout</button></a>
                 </div>
+
             </div>
-
-
-            <!-- sidebar -->
-            <div class="col-md-2 bg-secondary p-0">
-                <!-- brands to display -->
-                <ul class="navbar-nav me-auto text-center">
-                    <li class="nav-item bg-info">
-                        <a href="#" class="nav-link text-light">
-                            <h4>Delivery brands</h4>
-                        </a>
-                    </li>
-                    <?php
-                    getbrands();
-                    ?>
-                </ul>
-
-                <!-- categories -->
-                <ul class="navbar-nav me-auto text-center">
-                    <li class="nav-item bg-info">
-                        <a href="#" class="nav-link text-light">
-                            <h4>categories</h4>
-                        </a>
-                    </li>
-
-                    <?php
-                    getcategories();
-
-                    ?>
-                </ul>
-            </div>
-
         </div>
+
 
         <?php include('./includes/footer.php') ?>
     </div>
