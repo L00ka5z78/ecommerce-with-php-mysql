@@ -1,6 +1,5 @@
 <?php
-include('./includes/connect.php');
-include('./functions/common_function.php');
+include('includes/connect.php');
 
 ?>
 
@@ -31,10 +30,10 @@ include('./functions/common_function.php');
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
+                            <a class="nav-link" href="display_all.php">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Register</a>
@@ -42,25 +41,16 @@ include('./functions/common_function.php');
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup> <?php cart_item(); ?></sup></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Total price: <?php total_cart_price(); ?>-/</a>
-                        </li>
-
                     </ul>
-                    <form class="d-flex" role="search" action="" method="get">
+                    <form class="d-flex" role="search" action="search_product.php" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
                         <input type="submit" value="Search" class="btn btn-outline-light mx-2" name="search_data_product">
                     </form>
                 </div>
             </div>
         </nav>
-        <!-- calling cart function  -->
-        <?php
-        cart()
-        ?>
+
+
 
         <!-- second child -->
         <nav class="navbar navbar-expand-lg  navbar-dark bg-secondary">
@@ -83,53 +73,22 @@ include('./functions/common_function.php');
         <!-- fourth child -->
 
         <div class="row px-1">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- products -->
                 <div class="row">
-                    <!-- fetching products from db -->
                     <?php
-                    search_product();
-                    get_unique_categories();
-                    get_unique_brands();
+                    if (!isset($_SESSION['username'])) {
+                        include('user_area/user_login.php');
+                    } else {
+                        include('payment.php');
+                    }
                     ?>
                 </div>
             </div>
 
-
-            <!-- sidebar -->
-            <div class="col-md-2 bg-secondary p-0">
-                <!-- brands to display -->
-                <ul class="navbar-nav me-auto text-center">
-                    <li class="nav-item bg-info">
-                        <a href="#" class="nav-link text-light">
-                            <h4>Delivery brands</h4>
-                        </a>
-                    </li>
-                    <?php
-                    getbrands();
-                    ?>
-                </ul>
-
-                <!-- categories -->
-                <ul class="navbar-nav me-auto text-center">
-                    <li class="nav-item bg-info">
-                        <a href="#" class="nav-link text-light">
-                            <h4>categories</h4>
-                        </a>
-                    </li>
-
-                    <?php
-                    getcategories();
-
-                    ?>
-                </ul>
-            </div>
-
         </div>
 
-        <div class="bg-info p-3 text-center">
-            <p>All rights reserved Designed by me 2024</p>
-        </div>
+        <?php include('./includes/footer.php') ?>
     </div>
 
     <!-- bootstrap js link -->
