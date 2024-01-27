@@ -203,13 +203,16 @@ include('functions/common_function.php');
                         if ($result_count > 0) {
                             echo "      <h4 class='px-3'>Subtotal: <strong class='text-info'>$total_price/-</strong></h4>
                             <input class='bg-info px-3 py-2 mx-3 border-0' type='submit' value='Continue Shopping' name='continue_shopping'>                        
-                            <a href='#12'><button class='bg-secondary px-3 py-2 border-0 text-light'>Checkout</button></a>";
+                            <button class='bg-secondary p-3 py-2 border-0'><a href='checkout.php' class='text-light text-decoration-none'>Checkout</a></button>
+                           ";
                         } else {
                             echo "<input class='bg-info px-3 py-2 mx-3 border-0' type='submit' value='Continue Shopping' name='continue_shopping'>";
                         }
+
                         if (isset($_POST['continue_shopping'])) {
                             echo "<script>window.open('index.php', '_self')</script>";
                         }
+
 
                         ?>
 
