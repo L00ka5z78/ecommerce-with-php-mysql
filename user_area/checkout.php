@@ -1,5 +1,5 @@
 <?php
-include('includes/connect.php');
+include('../includes/connect.php');
 
 ?>
 
@@ -59,7 +59,7 @@ include('includes/connect.php');
                     <a class="nav-link" href="#">Welcome guest</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="./user_login.php">Login</a>
                 </li>
             </ul>
         </nav>
@@ -78,7 +78,8 @@ include('includes/connect.php');
                 <div class="row">
                     <?php
                     if (!isset($_SESSION['username'])) {
-                        include('user_area/user_login.php');
+                        include('user_login.php');
+                        // include('user_area/user_login.php'); // before changes 
                     } else {
                         include('payment.php');
                     }
@@ -88,7 +89,7 @@ include('includes/connect.php');
 
         </div>
 
-        <?php include('./includes/footer.php') ?>
+        <?php include('../includes/footer.php') ?>
     </div>
 
     <!-- bootstrap js link -->
