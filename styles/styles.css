@@ -29,3 +29,13 @@
   height: 50px;
   object-fit: contain;
 }
+.payment_image {
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+/* img {
+  width: 90%;
+  margin: auto;
+  display: block;
+} */
