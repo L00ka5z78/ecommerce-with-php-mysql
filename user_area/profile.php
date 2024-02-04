@@ -133,7 +133,7 @@ session_start();
                             username =
                             '$username'    
                         ";
-                    $user_image                   = mysqli_query($con, $user_image);
+                    $user_image                     = mysqli_query($con, $user_image);
                     $row_image                      = mysqli_fetch_array($user_image);
                     $user_image                     = $row_image['user_image'];
                     echo "
@@ -143,9 +143,6 @@ session_start();
                     ";
                     ?>
 
-                    <!-- <li class="nav-item">
-                        <img src="../images/jb.jpg" alt="" class="profile_img my-4">
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link text-light" href="profile.php">
                             Pending orders
@@ -173,9 +170,12 @@ session_start();
                     </li>
                 </ul>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10 text-center">
                 <?php
                 get_user_order_details();
+                if (isset($_GET['edit_account'])) {
+                    include('edit_account.php');
+                }
                 ?>
 
             </div>
