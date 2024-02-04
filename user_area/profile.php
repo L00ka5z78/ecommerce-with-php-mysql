@@ -120,31 +120,54 @@ session_start();
                             <h4>Your profile</h4>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <img src="../images/jb.jpg" alt="" class="profile_img my-4">
+
+
+                    <?php
+                    $username                       =  $_SESSION['username'];
+                    $user_image                     = "
+                        SELECT
+                        *
+                        FROM
+                            `user_table`
+                        WHERE
+                            username =
+                            '$username'    
+                        ";
+                    $user_image                   = mysqli_query($con, $user_image);
+                    $row_image                      = mysqli_fetch_array($user_image);
+                    $user_image                     = $row_image['user_image'];
+                    echo "
+                    <li class='nav-item'>
+                        <img src='./user_images/$user_image' alt='' class='profile_img my-4'>
                     </li>
+                    ";
+                    ?>
+
+                    <!-- <li class="nav-item">
+                        <img src="../images/jb.jpg" alt="" class="profile_img my-4">
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="profile.php">
                             Pending orders
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="profile.php?edit_account">
                             Edit account
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="profile.php?my_orders">
                             My orders
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="profile.php?delete_account">
                             Delete account
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="logout.php">
                             Logout
                         </a>
                     </li>
