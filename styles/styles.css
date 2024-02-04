@@ -39,3 +39,11 @@
   margin: auto;
   display: block;
 } */
+.profile_img {
+  width: 90%;
+  /* height: 100%; */
+  margin: auto;
+  display: block; /* this classes centers img  */
+
+  object-fit: contain;
+}
