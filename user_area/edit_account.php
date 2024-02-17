@@ -17,8 +17,38 @@ if (isset($_GET['edit_account'])) {
     $user_email                                 = $row_fetch['user_email'];
     $user_address                               = $row_fetch['user_address'];
     $user_mobile                                = $row_fetch['user_mobile'];
-    $user_image = $row_fetch['user_image'];
 }
+if (isset($_POST['user_update'])) {
+    $update_id                             = $user_id;
+
+    $username                               = $_POST['user_username'];
+    $user_email                             = $_POST['user_email'];
+    $user_address                           = $_POST['user_address'];
+    $user_mobile                            = $_POST['user_mobile'];
+    $user_image1                            = $_FILES['user_image']['name'];
+    $user_image_tmp                         = $_FILES['user_image']['tmp_name'];
+    move_uploaded_file($user_image_tmp, "./user_images/$user_image");
+
+    // update query
+    $update_data = "
+            UPDATE
+                `user_table`
+            SET
+                username = '$username',
+                user_email = '$user_email',
+                user_image = '$user_image1',
+                user_address = '$user_address',  
+                user_mobile = '$user_mobile'
+            WHERE 
+                user_id = $update_id;    
+            ";
+    $result_query_update                = mysqli_query($con, $update_data);
+    if ($result_query_update) {
+        echo "<script>alert('Data udated successfully')</script>";
+        echo "<script>window.open('logout.php', '_self')</script>";
+    }
+}
+
 ?>
 
 
