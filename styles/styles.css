@@ -29,3 +29,26 @@
   height: 50px;
   object-fit: contain;
 }
+.payment_image {
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+/* img {
+  width: 90%;
+  margin: auto;
+  display: block;
+} */
+.profile_img {
+  width: 90%;
+  /* height: 100%; */
+  margin: auto;
+  display: block; /* this classes centers img  */
+
+  object-fit: contain;
+}
+.edit_img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
