@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['edit_acount'])) {
+if (isset($_GET['edit_account'])) {
     $user_session_name                          = $_SESSION['username'];
     $select_query                               = "
         SELECT
