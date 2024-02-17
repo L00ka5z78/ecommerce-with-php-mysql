@@ -71,7 +71,7 @@
                 <td class='bg-secondary text-light'>$invoice_number</td>
                 <td class='bg-secondary text-light'>$order_date</td>
                 <td class='bg-secondary text-light'>$order_status</td>
-                <td class='bg-secondary text-light'><a href='confirm_payment.php' class='text-light'>Confirm</a></td>
+                <td class='bg-secondary text-light'><a href='confirm_payment.php?order_id=$order_id' class='text-light'>Confirm</a></td>
             </tr>
                 ";
                 $number++;
