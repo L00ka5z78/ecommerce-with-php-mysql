@@ -52,7 +52,7 @@
                     ?>
                 </td>
                 <td class='bg-secondary text-light'><?php echo $status; ?></td>
-                <td class='bg-secondary text-light'><a href='' class='text-ligth'><i class='fa-solid fa-pen-to-square text-light'></i></a></td>
+                <td class='bg-secondary text-light'><a href='index.php?edit_products' class='text-ligth'><i class='fa-solid fa-pen-to-square text-light'></i></a></td>
                 <td class='bg-secondary text-light'><a href='' class='text-ligth'><i class='fa-solid fa-trash text-light'></i></a></td>
             </tr>
             <!-- "; -->
