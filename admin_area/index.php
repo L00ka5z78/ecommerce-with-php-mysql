@@ -87,10 +87,11 @@ include('../functions/common_function.php');
         </div>
 
 
+        <?php include("../includes/footer.php") ?>
 
-        <div class="bg-info p-3 text-center footer">
+        <!-- <div class="bg-info p-3 text-center footer">
             <p>All rights reserved Designed by me 2024</p>
-        </div>
+        </div> -->
     </div>
 
     <!-- bootstrap js link -->
