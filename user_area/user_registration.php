@@ -137,7 +137,7 @@ if (isset($_POST['user_register'])) {
             `cart_details` 
         WHERE 
             ip_address = 
-            '$user_ip
+            '$user_ip'
         ";
     $result_cart                       = mysqli_query($con, $select_cart_items);
     $rows_count                        = mysqli_num_rows($result_cart);

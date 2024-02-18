@@ -70,14 +70,20 @@
                 <td class='bg-secondary text-light'>$total_products</td>
                 <td class='bg-secondary text-light'>$invoice_number</td>
                 <td class='bg-secondary text-light'>$order_date</td>
-                <td class='bg-secondary text-light'>$order_status</td>
-                <td class='bg-secondary text-light'><a href='confirm_payment.php?order_id=$order_id' class='text-light'>Confirm</a></td>
-            </tr>
-                ";
+                <td class='bg-secondary text-light'>$order_status</td>";
+            ?>
+            <?php
+                if ($order_status == 'Complete') {
+                    echo "
+                    <td class='bg-secondary text-light'>Paid</td>
+                    ";
+                } else {
+                    echo "<td class='bg-secondary text-light'><a href='confirm_payment.php?order_id=$order_id' class='text-light'>Confirm</a></td>
+                <tr>";
+                }
                 $number++;
-            }        ?>
-
-
+            }
+            ?>
         </tbody>
     </table>
 </body>
