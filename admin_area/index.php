@@ -60,9 +60,9 @@ include('../functions/common_function.php');
                         <a href="index.php?view_products" class="nav-link text-light bg-info my-1">View products</a>
                     </button>
                     <button class="my-3 px-1"><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert categories</a></button>
-                    <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">View categories</a></button>
+                    <button class="my-3 px-1"><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">View categories</a></button>
                     <button class="my-3 px-1"><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert brands</a></button>
-                    <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">View brands</a></button>
+                    <button class="my-3 px-1"><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View brands</a></button>
                     <button class="my-3" px-1><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
@@ -88,6 +88,12 @@ include('../functions/common_function.php');
             }
             if (isset($_GET['delete_product'])) {
                 include('panel/delete_product.php');
+            }
+            if (isset($_GET['view_categories'])) {
+                include('panel/view_categories.php');
+            }
+            if (isset($_GET['view_brands'])) {
+                include('panel/view_brands.php');
             }
             ?>
         </div>
