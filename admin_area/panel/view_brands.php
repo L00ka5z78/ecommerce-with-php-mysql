@@ -24,7 +24,7 @@
             <tr class="text-center">
                 <td class="bg-secondary text-light"><?php echo $number; ?></td>
                 <td class="bg-secondary text-light"><?php echo $brand_title; ?></td>
-                <td class='bg-secondary text-light'><a href='' class='text-ligth'><i class='fa-solid fa-pen-to-square text-light'></i></a></td>
+                <td class='bg-secondary text-light'><a href='index.php?edit_brands=<?php echo $brand_id ?>' class='text-ligth'><i class='fa-solid fa-pen-to-square text-light'></i></a></td>
                 <td class='bg-secondary text-light'><a href='' class='text-ligth'><i class='fa-solid fa-trash text-light'></i></a></td>
             </tr>
         <?php

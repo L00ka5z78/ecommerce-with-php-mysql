@@ -95,6 +95,12 @@ include('../functions/common_function.php');
             if (isset($_GET['view_brands'])) {
                 include('panel/view_brands.php');
             }
+            if (isset($_GET['edit_category'])) {
+                include('panel/edit_category.php');
+            }
+            if (isset($_GET['edit_brands'])) {
+                include('panel/edit_brands.php');
+            }
             ?>
         </div>
 
