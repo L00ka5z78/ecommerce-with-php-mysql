@@ -25,7 +25,7 @@
                 <td class="bg-secondary text-light"><?php echo $number; ?></td>
                 <td class="bg-secondary text-light"><?php echo $category_title; ?></td>
                 <td class='bg-secondary text-light'><a href='index.php?edit_category=<?php echo $category_id  ?>' class='text-ligth'><i class='fa-solid fa-pen-to-square text-light'></i></a></td>
-                <td class='bg-secondary text-light'><a href='' class='text-ligth'><i class='fa-solid fa-trash text-light'></i></a></td>
+                <td class='bg-secondary text-light'><a href='index.php?delete_category=<?php echo $category_id  ?>' class='text-ligth'><i class='fa-solid fa-trash text-light'></i></a></td>
             </tr>
         <?php
         }

@@ -101,6 +101,12 @@ include('../functions/common_function.php');
             if (isset($_GET['edit_brands'])) {
                 include('panel/edit_brands.php');
             }
+            if (isset($_GET['delete_category'])) {
+                include('panel/delete_category.php');
+            }
+            if (isset($_GET['delete_brands'])) {
+                include('panel/delete_brands.php');
+            }
             ?>
         </div>
 
