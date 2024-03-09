@@ -114,3 +114,45 @@ if (isset($_GET['edit_products'])) {
         </div>
     </form>
 </div>
+
+<!-- editing product -->
+
+<?php
+if (isset($_POST['edit_product'])) {
+    $product_title          = $_POST['product_title'];
+    $product_description    = $_POST['product_description'];
+    $product_keywords       = $_POST['product_keywords'];
+    $product_category       = $_POST['product_category'];
+    $product_brands         = $_POST['product_brands'];
+    $product_price          = $_POST['product_price'];
+
+    $product_image1         = $_FILES['product_image1']['name'];
+    $product_image2         = $_FILES['product_image2']['name'];
+    $product_image3         = $_FILES['product_image3']['name'];
+
+    $temp_image1         = $_FILES['product_image1']['tmp_name'];
+    $temp_image2         = $_FILES['product_image2']['tmp_name'];
+    $temp_image3         = $_FILES['product_image3']['tmp_name'];
+
+    // check if fields are empty or not
+
+    if (
+        $product_title == '' or
+        $product_description == '' or
+        $product_keywords == '' or
+        $product_category == '' or
+        $product_brands == '' or
+        $product_image1 == '' or
+        $product_image2 == '' or
+        $product_image3 == '' or
+        $product_price == ''
+    ) {
+        echo "<script>alert('Please fill all the fields')</script>";
+    } else {
+        move_uploaded_file($temp_image1, "/product_images/$product_image1");
+        move_uploaded_file($temp_image2, "/product_images/$product_image2");
+        move_uploaded_file($temp_image3, "/product_images/$product_image3");
+    }
+}
+
+?>
