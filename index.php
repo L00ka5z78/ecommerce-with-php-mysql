@@ -1,3 +1,10 @@
+<?php
+include('includes/connect.php');
+include('functions/common_function.php');
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +17,11 @@
     <!-- font awesome link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/styles.css">
-
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,42 +36,82 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
+                            <a class="nav-link" href="display_all.php">Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "
+                            <li class='nav-item'>
+                            <a class='nav-link' href='./user_area/profile.php'>My Account</a>
                         </li>
+                            ";
+                        } else {
+                            echo "
+                            <li class='nav-item'>
+                            <a class='nav-link' href='./user_area/user_registration.php'>Register</a>
+                        </li>
+                            ";
+                        }
+                        ?>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
+                                    <?php cart_item(); ?>
+                                </sup></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total price:100-/</a>
+                            <a class="nav-link" href="#">Total price: <?php total_cart_price(); ?>-/</a>
                         </li>
 
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    <form class="d-flex" role="search" action="search_product.php" method="get">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
+                        <input type="submit" value="Search" class="btn btn-outline-light mx-2" name="search_data_product">
                     </form>
                 </div>
             </div>
         </nav>
+        <!-- calling cart function  -->
+        <?php
+        cart()
+        ?>
+
 
         <!-- second child -->
         <nav class="navbar navbar-expand-lg  navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome guest</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
+
+                <?php
+
+                if (!isset($_SESSION['username'])) {
+                    echo " <li class='nav-item'>
+                    <a class='nav-link' href='#'>Welcome guest</a>    
+                    </li>";
+                } else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='#'>Welcome " . $_SESSION['username'] . "</a>
+                    </li>";
+                }
+
+
+                if (!isset($_SESSION['username'])) {
+                    echo " <li class='nav-item'>
+                    <a class='nav-link' href='./user_area/user_login.php'>Login</a>    
+                    </li>";
+                } else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='./user_area/logout.php'>Logout</a>
+                    </li>";
+                }
+                ?>
+
             </ul>
         </nav>
 
@@ -72,78 +123,18 @@
 
         <!-- fourth child -->
 
-        <div class="row">
+        <div class="row px-1">
             <div class="col-md-10">
                 <!-- products -->
                 <div class="row">
-
-                    <div class="col-md-4  mb-2">
-                        <div class="card">
-                            <img src="./images/daisy.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <div class="card">
-                            <img src="./images/daisy.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <div class="card">
-                            <img src="./images/icecoffee.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <div class="card">
-                            <img src="./images/capsicum.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <div class="card">
-                            <img src="./images/daisy.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4  mb-2">
-                        <div class="card">
-                            <img src="./images/apple.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View more</a>
-                            </div>
-                        </div>
-                    </div>
-
+                    <!-- fetching products from db -->
+                    <?php
+                    getproducts();
+                    get_unique_categories();
+                    get_unique_brands();
+                    // $ip = getIPAddress();
+                    // echo 'User Real IP Address - ' . $ip;
+                    ?>
                 </div>
             </div>
 
@@ -157,27 +148,9 @@
                             <h4>Delivery brands</h4>
                         </a>
                     </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">
-                            brand4
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">
-                            brand4
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">
-                            brand4
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">
-                            brand4
-                        </a>
-                    </li>
+                    <?php
+                    getbrands();
+                    ?>
                 </ul>
 
                 <!-- categories -->
@@ -188,26 +161,16 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">categorie1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">categorie2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">categorie3</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light">categorie4</a>
-                    </li>
+                    <?php
+                    getcategories();
+
+                    ?>
                 </ul>
             </div>
 
         </div>
 
-        <div class="bg-info p-3 text-center">
-            <p>All rights reserved Designed by me 2024</p>
-        </div>
+        <?php include('./includes/footer.php') ?>
     </div>
 
     <!-- bootstrap js link -->
