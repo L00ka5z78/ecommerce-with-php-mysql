@@ -34,23 +34,38 @@
                 $order_date     = $row_data['order_date'];
                 $order_status   = $row_data['order_status'];
                 $number++;
-                echo "
+        ?>
                 <tr>
-                <th class='bg-secondary text-light'>$number</th>
-                <th class='bg-secondary text-light'>$amount_due</th>
-                <th class='bg-secondary text-light'>$invoice_number</th>
-                <th class='bg-secondary text-light'>$total_products</th>
-                <th class='bg-secondary text-light'>$order_date</th>
-                <th class='bg-secondary text-light'>$order_status</th>
-                <td class='bg-secondary text-light'><a class='bg-secondary text-light' herf=''><i class='fa-solid fa-trash text-light'></i></a></td>           
-                 </tr>
-
-                ";
+                    <th class='bg-secondary text-light'><?php echo $number ?></th>
+                    <th class='bg-secondary text-light'><?php echo $amount_due ?></th>
+                    <th class='bg-secondary text-light'><?php echo $invoice_number ?></th>
+                    <th class='bg-secondary text-light'><?php echo $total_products ?></th>
+                    <th class='bg-secondary text-light'><?php echo $order_date ?></th>
+                    <th class='bg-secondary text-light'><?php echo $order_status ?></th>
+                    <!-- <td class='bg-secondary text-light'><a class='bg-secondary text-light' href='index.php?delete_order=<?php echo $order_id ?>'><i class='fa-solid fa-trash text-light'></i></a></td> -->
+                    <td class='bg-secondary text-light'><a href='index.php?delete_order=<?php echo $order_id ?>' type="button" class="text-light" data-toggle="modal" data-target="#exampleModal"><i class='fa-solid fa-trash text-light'></i></a></td>
+                </tr>
+        <?php
             }
         }
         ?>
-
-        @TODO dodaj delete do tabeli
-
+        <!-- @TODO dodaj delete modal  do tabeli -->
         </tbody>
 </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <h4>Are you sure you want to delete this order?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="./index.php?list_orders" class="text-light text-decoration-none">No</a></button>
+                <button type="button" class="btn btn-primary"><a href="index.php?delete_order=<?php echo $order_id ?> " class="text-light text-decoration-none">Yes</a></button>
+            </div>
+        </div>
+    </div>
+</div>

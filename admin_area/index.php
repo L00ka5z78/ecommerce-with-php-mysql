@@ -110,6 +110,9 @@ include('../functions/common_function.php');
             if (isset($_GET['list_orders'])) {
                 include('panel/list_orders.php');
             }
+            if (isset($_GET['delete_order'])) {
+                include('panel/delete_order.php');
+            }
             ?>
         </div>
 
