@@ -1,25 +1,24 @@
-<h3 class="text-center text-success">All orders</h3>
+<h3 class="text-center text-success">All payments</h3>
 <table class="table table-bordered mt-5">
     <thead>
 
         <?php
-        $get_orders             = "
-            SELECT * FROM `user_orders`
+        $get_payments             = "
+            SELECT * FROM `user_payments`
             ";
-        $result                 = mysqli_query($con, $get_orders);
+        $result                 = mysqli_query($con, $get_payments);
         $row_count              = mysqli_num_rows($result);
 
         if ($row_count == 0) {
-            echo "<h2 class'text-danger text-center mt-5'>No orders yet</h2>";
+            echo "<h2 class'text-danger text-center mt-5'>No payments yet</h2>";
         } else {
             echo "
             <tr>
                 <th class='bg-info'>Sl no.</th>
-                <th class='bg-info'>Due amount</th>
                 <th class='bg-info'>Invoice number</th>
-                <th class='bg-info'>Total products</th>
+                <th class='bg-info'>Amount</th>
+                <th class='bg-info'>Payment mode</th>
                 <th class='bg-info'>Order date</th>
-                <th class='bg-info'>Status</th>
                 <th class='bg-info'>Delete</th>
             </tr>
         </thead>

@@ -64,7 +64,7 @@ include('../functions/common_function.php');
                     <button class="my-3 px-1"><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert brands</a></button>
                     <button class="my-3 px-1"><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View brands</a></button>
                     <button class="my-3" px-1><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All orders</a></button>
-                    <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
+                    <button class="my-3 px-1"><a href="index.php?list_payments" class="nav-link text-light bg-info my-1">All payments</a></button>
                     <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
                     <button class="my-3 px-1 "><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
                 </div>
@@ -112,6 +112,9 @@ include('../functions/common_function.php');
             }
             if (isset($_GET['delete_order'])) {
                 include('panel/delete_order.php');
+            }
+            if (isset($_GET['list_payments'])) {
+                include('panel/list_payments.php');
             }
             ?>
         </div>
