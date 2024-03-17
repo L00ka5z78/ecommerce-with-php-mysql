@@ -63,9 +63,9 @@ include('../functions/common_function.php');
                     <button class="my-3 px-1"><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">View categories</a></button>
                     <button class="my-3 px-1"><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert brands</a></button>
                     <button class="my-3 px-1"><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View brands</a></button>
-                    <button class="my-3" px-1><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
-                    <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
-                    <button class="my-3 px-1"><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
+                    <button class="my-3" px-1><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All orders</a></button>
+                    <button class="my-3 px-1"><a href="index.php?list_payments" class="nav-link text-light bg-info my-1">All payments</a></button>
+                    <button class="my-3 px-1"><a href="index.php?list_users" class="nav-link text-light bg-info my-1">List users</a></button>
                     <button class="my-3 px-1 "><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
                 </div>
             </div>
@@ -107,6 +107,21 @@ include('../functions/common_function.php');
             if (isset($_GET['delete_brands'])) {
                 include('panel/delete_brands.php');
             }
+            if (isset($_GET['list_orders'])) {
+                include('panel/list_orders.php');
+            }
+            if (isset($_GET['delete_order'])) {
+                include('panel/delete_order.php');
+            }
+            if (isset($_GET['list_payments'])) {
+                include('panel/list_payments.php');
+            }
+            if (isset($_GET['list_users'])) {
+                include('panel/list_users.php');
+            }
+            if (isset($_GET['delete_user'])) {
+                include('panel/delete_user.php');
+            }
             ?>
         </div>
 
@@ -120,6 +135,9 @@ include('../functions/common_function.php');
 
     <!-- bootstrap js link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
