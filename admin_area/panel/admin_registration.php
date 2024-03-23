@@ -1,3 +1,8 @@
+<?php
+include('../../includes/connect.php');
+include('../../functions/common_function.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +27,8 @@
             <div class="col-lg-6 col-xl-5">
                 <form action="" method="post">
                     <div class="form-outline mb-4">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Insert your name..." required class="form-control">
+                        <label for="admin_username" class="form-label">Username</label>
+                        <input type="text" id="admin_username" name="admin_username" placeholder="Insert your name..." required class="form-control">
                     </div>
                     <div class="form-outline mb-4">
                         <label for="email" class="form-label">Email</label>
@@ -35,7 +40,7 @@
                     </div>
                     <div class="form-outline mb-4">
                         <label for="confirm_password" class="form-label">Confirm Password</label>
-                        <input type="confirm_password" id="confirm_password" name="confirm_password" placeholder="Confirm password..." required class="form-control">
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password..." required class="form-control">
                     </div>
                     <div>
                         <input type="submit" class="bg-info py-2 px-3 border-0" name="admin_registration" value="Register">
@@ -51,3 +56,57 @@
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['admin_registration'])) {
+    $admin_username         = $_POST['admin_username'];
+    $admin_email            = $_POST['email'];
+    $admin_password         = $_POST['password'];
+    $conf_admin_password    = $_POST['confirm_password'];
+
+    if ($admin_password != $conf_admin_password) {
+        echo "<script>alert('Password does not match')</script>";
+    } else {
+        $hash_password      = password_hash($admin_password, PASSWORD_DEFAULT);
+
+        $select_query       = "
+            SELECT 
+            * 
+            FROM 
+                `admin_table` 
+            WHERE 
+                admin_name = 
+                '$admin_username' 
+            OR 
+                admin_email = 
+                '$admin_email'
+            ";
+        $result             = mysqli_query($con, $select_query);
+        $rows_count         = mysqli_num_rows($result);
+
+        if ($rows_count > 0) {
+            echo "<script>alert('Name or email already exists')</script>";
+        } else {
+            $insert_query = "
+                INSERT 
+                INTO 
+                    `admin_table` (
+                    admin_name, 
+                    admin_email, 
+                    admin_password
+                ) VALUES (
+                    '$admin_username', 
+                    '$admin_email', 
+                    '$hash_password'
+                )";
+            $sql_execute    = mysqli_query($con, $insert_query);
+
+            if ($sql_execute) {
+                echo "<script>alert('Registration successful')</script>";
+                echo "<script>window.open('../index.php', '_self')</script>";
+            } else {
+                echo "<script>alert('Registration failed')</script>";
+            }
+        }
+    }
+}

@@ -1,3 +1,10 @@
+<?php
+include('../../includes/connect.php');
+include('../../functions/common_function.php');
+@session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +29,8 @@
             <div class="col-lg-6 col-xl-5">
                 <form action="" method="post">
                     <div class="form-outline mb-4">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Insert your name..." required class="form-control">
+                        <label for="admin_username" class="form-label">Username</label>
+                        <input type="text" id="admin_username" name="admin_username" placeholder="Insert your name..." required class="form-control">
                     </div>
                     <div class="form-outline mb-4">
                         <label for="password" class="form-label">Password</label>
@@ -43,3 +50,40 @@
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['admin_login'])) {
+    $admin_username                  = $_POST['admin_username'];
+    $admin_password                  = $_POST['password'];
+
+    $select_query =                 "
+        SELECT 
+        * 
+        FROM 
+            `admin_table`
+        WHERE
+        admin_name = 
+            '$admin_username'
+        ";
+    $result                         = mysqli_query($con, $select_query);
+    $row_count                      = mysqli_num_rows($result);
+    $row_data                       = mysqli_fetch_assoc($result);
+
+    if ($row_count > 0) {
+        $_SESSION['admin_name']                   = $admin_username;
+
+        if (password_verify($admin_password, $row_data['admin_password'])) {
+            // echo "<script>alert('You are logged in')</script>";
+            if ($row_count == 1) {
+                $_SESSION['admin_name']          = $admin_username;
+
+                echo "<script>alert('You are logged in')</script>";
+                echo "<script>window.open('../index.php', '_self')</script>";
+            }
+        }
+    } else {
+        echo "<script>alert('Invalid credentials')</script>";
+    }
+}
+
+?>
