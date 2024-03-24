@@ -103,7 +103,7 @@ if (isset($_POST['user_register'])) {
 
 
     else {
-        //  *************    insert user. this we do first. **********************
+        //  *************    insert user.  we do this first. **********************
         move_uploaded_file($user_image_tmp, "./user_images/$user_image");
         $insert_query                   = "
             INSERT 
