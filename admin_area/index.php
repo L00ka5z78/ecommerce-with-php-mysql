@@ -1,7 +1,7 @@
 <?php
 include('../includes/connect.php');
 include('../functions/common_function.php');
-
+session_start();
 ?>
 
 
@@ -33,9 +33,35 @@ include('../functions/common_function.php');
                 <img src="../images/logo.jpg" alt="" class="logo">
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="#" class="nav-link">Welcome guest</a>
-                        </li>
+                        </li> -->
+
+
+
+                        <?php
+
+                        if (!isset($_SESSION['admin_name'])) {
+                            echo " <li class='nav-item'>
+    <a class='nav-link' href='#'>Welcome guest</a>    
+    </li>";
+                        } else {
+                            echo "<li class='nav-item'>
+    <a class='nav-link' href='#'>Welcome " . $_SESSION['admin_name'] . "</a>
+    </li>";
+                        }
+
+
+                        if (!isset($_SESSION['admin_name'])) {
+                            echo " <li class='nav-item'>
+    <a class='nav-link' href='./admin_area/panel/admin_login.php'>Login</a>    
+    </li>";
+                        } else {
+                            echo "<li class='nav-item'>
+    <a class='nav-link' href='./panel/admin_logout.php'>Logout</a>
+    </li>";
+                        }
+                        ?>
                     </ul>
                 </nav>
             </div>
