@@ -66,7 +66,7 @@ include('../functions/common_function.php');
                     <button class="my-3" px-1><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All orders</a></button>
                     <button class="my-3 px-1"><a href="index.php?list_payments" class="nav-link text-light bg-info my-1">All payments</a></button>
                     <button class="my-3 px-1"><a href="index.php?list_users" class="nav-link text-light bg-info my-1">List users</a></button>
-                    <button class="my-3 px-1 "><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
+                    <button class="my-3 px-1 "><a href="panel/admin_logout.php" class="nav-link text-light bg-info my-1">Logout</a></button>
                 </div>
             </div>
         </div>
